@@ -30,3 +30,14 @@ EXAMPLE:
     ├── docker-network-routing.md
     └── [descriptor-of-the-log].md
 ```
+
+## 🛠️ Log Elements
+To maintain analytical consistency, logs in this repository generally capture:
+
+* Context & Intent: What problem are we solving, or what concept are we exploring?
+
+* The Execution: The raw terminal commands, scripts, and environment setups used during the session.
+
+* The Findings: The data on what worked, what broke, and the core logic discovered along the way.
+
+This repository functions as a searchable, personal knowledge base. Built collaboratively with AI; maintained for the future.
