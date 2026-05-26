@@ -20,7 +20,7 @@ The objective of this architectural exploration is to fundamentally redefine the
 Moving away from a traditional mobile-centric or hardware-tethered development setup, this paradigm treats standard GitHub.com accounts as the absolute laboratory space. Devices like smartphones, handheld Linux platforms, or remote work terminals are entirely decoupled from the actual operating system environment, serving as interchangeable portals to execute or monitor projects. 
 
 ### The RDP/Server Bridge Implementation
-For specialized, bare-metal tasks—such as direct hardware control for 3D printing automation written in Python—the system avoids browser-sandbox limitations by running specialized execution code on a high-powered home computing asset. Remote Desktop Protocol (RDP) traffic is funneled through encrypted tunnels to access this heavy compute resource on demand from any modular client screen, entirely keeping gaming, scripting, and development environments completely isolated from enterprise firewalls.
+For specialized, bare-metal tasks—such as direct hardware control for 3D printing automation written in Python—the system avoids browser-sandbox limitations by running specialized execution code on a high-powered home computing asset. Remote Desktop Protocol (RDP) traffic is funneled through encrypted tunnels to access this heavy compute resource on demand from any modular client screen, entirely keeping gaming, scripting, and development environments completely isolated.
 
 ---
 
