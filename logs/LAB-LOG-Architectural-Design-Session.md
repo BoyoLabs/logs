@@ -28,23 +28,28 @@ For specialized, bare-metal tasks—such as direct hardware control for 3D print
 
 The system utilizes a dual-mode Single Page Application (SPA) deployed as a static frontend. When executed on an always-on physical machine at home, the app is initialized in **Server Mode**, mutating a browser tab into a persistent data-and-routing daemon.
 
-```mermaid
-graph TD
-    %% Base Styling
-    classDef runtime fill:#1f2328,stroke:#30363d,stroke-width:2px,color:#c9d1d9;
-    classDef mode fill:#161b22,stroke:#30363d,stroke-width:1px,color:#8b949e;
-    classDef channel fill:#238636,stroke:#2ea043,stroke-width:2px,color:#ffffff;
-
-    %% Nodes
-    A[UNIVERSAL CLIENT RUNTIME<br><i>Static Single Page Application via GitHub Pages</i>]:::runtime
-    
-    B["SERVER MODE<br><small>(Executed on Home Iron)</small><br><br>• Mounts OPFS Database<br>• Runs WebRTC Listener"]:::mode
-    C["CLIENT MODE<br><small>(Executed on Mobile / Steam Deck)</small><br><br>• Generates Client State<br>• Initiates Peer Request"]:::mode
-    
-    D[DIRECT WEBRTC DATA CHANNEL<br><i>Encrypted, Zero-Port, Local-First Connection</i>]:::channel
-
-    %% Connections
-    A -->|UI Initialization Toggle| B
-    A -->|UI Initialization Toggle| C
-    B -->|P2P Network Initialization| D
-    C -->|P2P Network Initialization| D
+```text
++------------------------------------------------------------+
+|                  UNIVERSAL CLIENT RUNTIME                  |
+|       (Static Single Page Application via GitHub Pages)      |
++------------------------------------------------------------+
+                             │
+              Toggled via UI Initialization
+                             │
+              ┌──────────────┴──────────────┐
+              ▼                             ▼
+     [ SERVER MODE ]                [ CLIENT MODE ]
+  (Executed on Home Iron)        (Executed on Mobile/Deck)
+              │                             │
+    • Mounts OPFS Database                  • Generates Client State
+    • Runs WebRTC Listener                  • Initiates Peer Request
+              │                             │
+              └──────────────┬──────────────┘
+                             │
+                P2P Network Initialization
+                             │
+                             ▼
+         +---------------------------------------+
+         |      DIRECT WEBRTC DATA CHANNEL       |
+         |  (Encrypted, Zero-Port, Local-First)  |
+         +---------------------------------------+
