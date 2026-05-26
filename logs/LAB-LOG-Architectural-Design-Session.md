@@ -15,64 +15,36 @@ The objective of this architectural exploration is to fundamentally redefine the
 
 ---
 
-## 2. Proposed Architecture: The Browser-Based "Server Node"
+## 2. System Overview & The Shift to Device Independence
+
+Moving away from a traditional mobile-centric or hardware-tethered development setup, this paradigm treats standard GitHub.com accounts as the absolute laboratory space. Devices like smartphones, handheld Linux platforms, or remote work terminals are entirely decoupled from the actual operating system environment, serving as interchangeable portals to execute or monitor projects. 
+
+### The RDP/Server Bridge Implementation
+For specialized, bare-metal tasks—such as direct hardware control for 3D printing automation written in Python—the system avoids browser-sandbox limitations by running specialized execution code on a high-powered home computing asset. Remote Desktop Protocol (RDP) traffic is funneled through encrypted tunnels to access this heavy compute resource on demand from any modular client screen, entirely keeping gaming, scripting, and development environments completely isolated from enterprise firewalls.
+
+---
+
+## 3. Proposed Technical Architecture: The Browser-Based "Server Node"
 
 The system utilizes a dual-mode Single Page Application (SPA) deployed as a static frontend. When executed on an always-on physical machine at home, the app is initialized in **Server Mode**, mutating a browser tab into a persistent data-and-routing daemon.
 
-+------------------------------------------------------------+  
-|                  UNIVERSAL CLIENT RUNTIME                  |  
-|       (Static Single Page Application via GitHub Pages)      |  
-+------------------------------------------------------------+  
-│  
-Toggled via UI Initialization  
-│  
-┌──────────────┴──────────────┐  
-▼                             ▼  
-[ SERVER MODE ]                [ CLIENT MODE ]  
-(Executed on Home Iron)        (Executed on Mobile/Deck)  
-│                             │  
-• Mounts OPFS Database                  • Generates Client State  
-• Runs WebRTC Listener                  • Initiates Peer Request  
-│                             │  
-└──────────────┬──────────────┘  
-│  
-P2P Network Initialization  
-│  
-▼  
-+---------------------------------------+  
-|      DIRECT WEBRTC DATA CHANNEL       |  
-|  (Encrypted, Zero-Port, Local-First)  |  
-+---------------------------------------+  
+```mermaid
+graph TD
+    %% Base Styling
+    classDef runtime fill:#1f2328,stroke:#30363d,stroke-width:2px,color:#c9d1d9;
+    classDef mode fill:#161b22,stroke:#30363d,stroke-width:1px,color:#8b949e;
+    classDef channel fill:#238636,stroke:#2ea043,stroke-width:2px,color:#ffffff;
 
-### Data Persistence Layer
-* **Technology:** Origin Private File System (OPFS) & WebAssembly SQLite.
-* **Mechanism:** The persistent Server Node requests permanent origin retention via `navigator.storage.persist()`. Incoming binary updates streams received from client nodes are written directly to disk via the low-level `FileSystemAccessAPI`. 
-* **Quota:** Up to 60% of the host machine's physical storage volume is made accessible to the sandboxed runtime, providing hundreds of gigabytes of zero-config file system access directly within a browser frame.
+    %% Nodes
+    A[UNIVERSAL CLIENT RUNTIME<br><i>Static Single Page Application via GitHub Pages</i>]:::runtime
+    
+    B["SERVER MODE<br><small>(Executed on Home Iron)</small><br><br>• Mounts OPFS Database<br>• Runs WebRTC Listener"]:::mode
+    C["CLIENT MODE<br><small>(Executed on Mobile / Steam Deck)</small><br><br>• Generates Client State<br>• Initiates Peer Request"]:::mode
+    
+    D[DIRECT WEBRTC DATA CHANNEL<br><i>Encrypted, Zero-Port, Local-First Connection</i>]:::channel
 
----
-
-## 4. The Core Engineering Constraint: NAT Traversal vs. Purity
-
-The primary technical bottleneck discovered during architectural analysis centers on **WebRTC Signaling**. Standard WebRTC requires the exchange of Session Description Protocol (SDP) payloads containing ephemeral routing sockets and dynamic cryptographic signatures (`ice-ufrag`/`ice-pwd`). 
-
-Because a home router shifts its temporary external connection ports constantly, two browsers must trade their highly volatile network fingerprints to open a connection. To orchestrate this handshake globally without a central command server, a series of design trade-offs were evaluated against the strict requirement for **total serverless purity**:
-
-| Signaling Mechanism | Structural Friction | Dependency | Architectural Purity |
-| :--- | :--- | :--- | :--- |
-| **Manual Data Exchange** (QR / Text Blocks) | **High:** Requires physical proximity or manual copy-paste of ephemeral tokens before roaming. | None | **100% Pure** (No third-party compute or network routing required). |
-| **Local mDNS Broadcast** (LAN Only) | **High:** Connections drop the moment a client moves to an outside network (e.g., cell towers or office firewalls). | None | **100% Pure** (Constrained to Local Area Network). |
-| **Tertiary Key-Value/API Storage** | **Low:** Allows a static user password to fetch dynamic coordinates automatically. | Third-Party API Bucket | **Pseudo-Backend:** Reintroduces a remote dependency / point of failure. |
-| **Public Open Protocols** (Matrix/MQTT) | **Low:** Completely automated backend handshake utilizing outbound connections. | Public Infrastructure Mesh | **Decentralized Network Share:** Piggybacks on public communication relays. |
-
----
-
-## 5. Next Phase Action Items & Prototyping Path
-To validate the browser-as-a-server thesis without compromising on architectural constraints, early-stage development will split into two isolated lab tracks:
-
-1. **The Pure Local Sandbox:** Build the vanilla WebRTC `RTCDataChannel` logic and verify data-rate throughput when streaming raw binary file pieces straight into the `FileSystemWritableFileStream` of the OPFS interface on a local loopback.
-2. **Handshake Streamlining:** Design the cleanest possible interface for managing manual SDP token transport, optimizing for low-overhead string injection to minimize friction during off-grid or remote testing windows.
-
-
-
-
-
+    %% Connections
+    A -->|UI Initialization Toggle| B
+    A -->|UI Initialization Toggle| C
+    B -->|P2P Network Initialization| D
+    C -->|P2P Network Initialization| D
