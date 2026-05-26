@@ -1,4 +1,4 @@
-🧪 LAB LOG: Markdown Parsing Collisions in AI Web Interfaces
+# 🧪 LAB LOG: Markdown Parsing Collisions in AI Web Interfaces
 Category: Documentation / Architecture
 
 Date: 2026-05-26
@@ -7,13 +7,13 @@ Status: Validated
 
 Target Device/Stack: GitHub Flavored Markdown (GFM) / LLM Web UI Engines
 
-1. Executive Summary & Context
+## 1. Executive Summary & Context
 This log documents an operational failure regarding the extraction of raw, un-nested Markdown code blocks from an AI web interface. The objective was to generate a clean, compliant GULL-standard template for immediate GitHub deployment. However, the attempt failed due to an architectural parsing collision where the browser's markdown renderer intercepted inside code blocks, resulting in malformed header compilation and corrupted code fences.
 
-2. Technical Architecture & System Flow
+## 2. Technical Architecture & System Flow
 The failure occurs because the browser-based AI interface utilizes a Markdown-in-Markdown rendering engine. When attempting to isolate raw template files, the data streams collide at the termination boundaries.
 
-'''text
+```text
 
 +-----------------------------------------------------------------------+
 |                       MASTER AI TEXT WRAPPER                          |
@@ -30,7 +30,7 @@ The failure occurs because the browser-based AI interface utilizes a Markdown-in
 |  
 http://googleusercontent.com/immersive_entry_chip/0
 
-'''
+```
 
 ## 5. Automation & Operational Constraints
 > ⚠️ **Critical Execution Rules:**
