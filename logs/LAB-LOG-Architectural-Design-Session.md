@@ -19,30 +19,30 @@ The objective of this architectural exploration is to fundamentally redefine the
 
 The system utilizes a dual-mode Single Page Application (SPA) deployed as a static frontend. When executed on an always-on physical machine at home, the app is initialized in **Server Mode**, mutating a browser tab into a persistent data-and-routing daemon.
 
-+------------------------------------------------------------+
-|                  UNIVERSAL CLIENT RUNTIME                  |
-|       (Static Single Page Application via GitHub Pages)      |
-+------------------------------------------------------------+
-│
-Toggled via UI Initialization
-│
-┌──────────────┴──────────────┐
-▼                             ▼
-[ SERVER MODE ]                [ CLIENT MODE ]
-(Executed on Home Iron)        (Executed on Mobile/Deck)
-│                             │
-• Mounts OPFS Database                  • Generates Client State
-• Runs WebRTC Listener                  • Initiates Peer Request
-│                             │
-└──────────────┬──────────────┘
-│
-P2P Network Initialization
-│
-▼
-+---------------------------------------+
-|      DIRECT WEBRTC DATA CHANNEL       |
-|  (Encrypted, Zero-Port, Local-First)  |
-+---------------------------------------+
++------------------------------------------------------------+  
+|                  UNIVERSAL CLIENT RUNTIME                  |  
+|       (Static Single Page Application via GitHub Pages)      |  
++------------------------------------------------------------+  
+│  
+Toggled via UI Initialization  
+│  
+┌──────────────┴──────────────┐  
+▼                             ▼  
+[ SERVER MODE ]                [ CLIENT MODE ]  
+(Executed on Home Iron)        (Executed on Mobile/Deck)  
+│                             │  
+• Mounts OPFS Database                  • Generates Client State  
+• Runs WebRTC Listener                  • Initiates Peer Request  
+│                             │  
+└──────────────┬──────────────┘  
+│  
+P2P Network Initialization  
+│  
+▼  
++---------------------------------------+  
+|      DIRECT WEBRTC DATA CHANNEL       |  
+|  (Encrypted, Zero-Port, Local-First)  |  
++---------------------------------------+  
 
 ### Data Persistence Layer
 * **Technology:** Origin Private File System (OPFS) & WebAssembly SQLite.
