@@ -4,6 +4,7 @@
 
 | Date | Category | Entry | Summary |
 |------|----------|-------|---------|
+| 2026-08-06 | Software | [ram-crisis-fleet-vs-single-machine-tco](software/ram-crisis-fleet-vs-single-machine-tco.md) | Rigorous TCO simulation: old-hardware fleet vs. one modern machine during the 2026 DRAM shortage — fleet wins on CapEx *and* compute-per-dollar, but a real crossover point (as soon as ~1.2yr) exists once power draw is counted. |
 | 2026-08-06 | Infra | [crd-decommissioned](infra/crd-decommissioned.md) | Chrome Remote Desktop retired once another existing remote-access service fully replaced it — turned out CRD had already silently stopped running weeks earlier. Includes a real security-lesson finding. |
 | 2026-08-05 | — | [standing-documentation-practice](standing-documentation-practice.md) | The decision to make logging CS-related work a default, proactive habit rather than something requested case by case. |
 | 2026-08-05 | Showcase | [edu](showcases/edu/README.md) | Self-directed continuing-education system with a public, tamper-evident transcript — entry includes the reproducible master prompt used to build it. |
