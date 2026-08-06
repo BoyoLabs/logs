@@ -13,9 +13,9 @@
 | 2026-05-22 | Hardware | [gpu-usage-research](hardware/gpu-usage-research.md) | Mapped which GPU (Intel Arc B580 vs. AMD integrated) actually handles rendering during an RDP session. |
 | 2026-05-23 | Hardware | [neptune-3-pro-led-control](hardware/neptune-3-pro-led-control.md) | Controlling the Elegoo Neptune 3 Pro's LEDs directly over USB serial. |
 | 2026-05-25 | Software | [zero-infrastructure-server-mesh-design](software/zero-infrastructure-server-mesh-design.md) | Theoretical architecture for a device-independent personal server, built entirely on GitHub + browser runtimes instead of local infra. |
-| 2026-05-26 | Software | [markdown-parsing-collisions](software/markdown-parsing-collisions.md) | Why raw, nested markdown code blocks get corrupted when copy-pasted out of an AI web interface's own markdown renderer. |
+| 2026-05-26 | AI Research | [markdown-parsing-collisions](ai-research/markdown-parsing-collisions.md) | Why raw, nested markdown code blocks get corrupted when copy-pasted out of an AI web interface's own markdown renderer. |
 | 2026-05-28 | Infra | [robinhood-agent-setup](infra/robinhood-agent-setup.md) | Stood up an MCP-based agentic trading tool suite against a live Robinhood account. |
 | 2026-06-10 | Software | [osrs-steam-crash-fix](software/osrs-steam-crash-fix.md) | OSRS wouldn't launch via Steam — traced to a blocking interstitial dialog stuck waiting for input. |
-| 2026-08-05 | Software | [ansi-escape-animation-attempt](software/ansi-escape-animation-attempt.md) | Tested whether raw ANSI escape codes smuggled into a chat response could animate a terminal live — negative result, rendering layer strips them. |
+| 2026-08-05 | AI Research | [ansi-escape-animation-attempt](ai-research/ansi-escape-animation-attempt.md) | Tested whether raw ANSI escape codes smuggled into a chat response could animate a terminal live — negative result, rendering layer strips them. |
 | 2026-08-05 | Showcase | [edu](showcases/edu/README.md) | Self-directed continuing-education system with a public, tamper-evident transcript — entry includes the reproducible master prompt used to build it. |
 | 2026-08-05 | — | [standing-documentation-practice](standing-documentation-practice.md) | The decision to make logging CS-related work a default, proactive habit rather than something requested case by case. |
