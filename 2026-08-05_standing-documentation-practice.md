@@ -1,10 +1,7 @@
 # Establishing a Standing Documentation Practice - 2026-08-05
 
 ## Context & Intent
-This entry is about itself, in a sense: it documents the decision, made earlier
-today in the same session that produced the [ANSI escape animation
-attempt](2026-08-05_ansi-escape-animation-attempt.md) and the first
-[`prompt-repo`](https://github.com/BoyoLabs/prompt-repo) entry, to make
+This entry is about itself, in a sense: it documents the decision to make
 documentation of computer-scientific work a *default*, proactive behavior rather
 than something requested case by case.
 
