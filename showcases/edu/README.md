@@ -8,7 +8,8 @@ over time, mastery-checkpoint assessment instead of per-lesson grading, a
 tamper-evident SHA-256 hash-chained certification ledger, and a small public
 read-only web app rendering it all live.
 
-Live at: **[edu.boyolabstech.com](https://edu.boyolabstech.com)**
+Live as a small hosted instance — the exact URL isn't posted publicly here;
+shared directly with people it's meant for rather than linked from this repo.
 
 ![Summary page](screenshot-1-summary.png)
 ![Full transcript page](screenshot-2-transcript.png)

@@ -4,7 +4,7 @@
 
 | Date | Category | Entry | Summary |
 |------|----------|-------|---------|
-| 2026-08-06 | Infra | [crd-decommissioned](infra/crd-decommissioned.md) | Chrome Remote Desktop retired once `rdp.boyolabstech.com` fully replaced it — turned out CRD had already silently stopped running weeks earlier. Includes a real security-lesson finding. |
+| 2026-08-06 | Infra | [crd-decommissioned](infra/crd-decommissioned.md) | Chrome Remote Desktop retired once another existing remote-access service fully replaced it — turned out CRD had already silently stopped running weeks earlier. Includes a real security-lesson finding. |
 | 2026-08-05 | — | [standing-documentation-practice](standing-documentation-practice.md) | The decision to make logging CS-related work a default, proactive habit rather than something requested case by case. |
 | 2026-08-05 | Showcase | [edu](showcases/edu/README.md) | Self-directed continuing-education system with a public, tamper-evident transcript — entry includes the reproducible master prompt used to build it. |
 | 2026-08-05 | AI Research | [ansi-escape-animation-attempt](ai-research/ansi-escape-animation-attempt.md) | Tested whether raw ANSI escape codes smuggled into a chat response could animate a terminal live — negative result, rendering layer strips them. |

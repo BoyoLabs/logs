@@ -4,11 +4,11 @@
 ## Context & Intent
 
 Chrome Remote Desktop (CRD) was this box's original GUI access path (see the
-earlier `crd-outage` and `crd-autostart-fix` entries in this folder). Once
-`rdp.boyolabstech.com` — a self-built WebRTC desktop stream over the box's own
-Cloudflare Tunnel — matured into a genuine replacement, the question came up:
-does `rdp.boyolabstech.com` even depend on CRD, or are they independent? They
-turned out to be fully independent (different display server, different
+earlier `crd-outage` and `crd-autostart-fix` entries in this folder). Once a
+different remote-access service already running on the box (a personal
+project, not covered here) matured into a genuine replacement, the question
+came up: did the two actually depend on each other, or were they independent?
+They turned out to be fully independent (different display server, different
 underlying tech), which meant CRD was no longer doing anything the newer
 service didn't already cover, and it was retired.
 
@@ -18,7 +18,7 @@ service didn't already cover, and it was retired.
    live process state and CRD's own logs. Its most recent activity was a
    clean shutdown on **2026-07-17** — it had already dropped out of the boot
    sequence (no entry left in `/etc/rc.local` or cron) roughly three weeks
-   before this cleanup, unnoticed, because `rdp.boyolabstech.com` had already
+   before this cleanup, unnoticed, because the other service had already
    taken over in practice. This was cleanup of an already-dead path, not a
    live cutover.
 
@@ -52,8 +52,8 @@ sitting in plaintext files (see this repo's security-sweep note in
 `standing-documentation-practice`-adjacent practice).
 
 **Second finding, unrelated to the mistake above:** CRD's architecture turned
-out to be genuinely independent of `rdp.boyolabstech.com` — CRD ran its own
-separate virtual display, not the physical SDDM/Xorg session the newer
+out to be genuinely independent of the service that replaced it — CRD ran its
+own separate virtual display, not the physical desktop session the newer
 service captures. That independence was real while CRD was alive, but stopped
 mattering in practice three weeks before anyone noticed, which says more
 about how naturally the newer service replaced it than about the old
