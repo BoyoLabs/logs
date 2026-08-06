@@ -16,6 +16,7 @@
 | 2026-05-26 | AI Research | [markdown-parsing-collisions](ai-research/markdown-parsing-collisions.md) | Why raw, nested markdown code blocks get corrupted when copy-pasted out of an AI web interface's own markdown renderer. |
 | 2026-05-28 | Infra | [robinhood-agent-setup](infra/robinhood-agent-setup.md) | Stood up an MCP-based agentic trading tool suite against a live Robinhood account. |
 | 2026-06-10 | Software | [osrs-steam-crash-fix](software/osrs-steam-crash-fix.md) | OSRS wouldn't launch via Steam — traced to a blocking interstitial dialog stuck waiting for input. |
+| 2026-07-20 | Infra | [boyolabstech-server-architecture](infra/boyolabstech-server-architecture.md) | *(backdated, written 2026-08-06)* Overview of the `*.boyolabstech.com` server: named-tunnel-only ingress, PIN-gated apps, self-healing cron-driven services, and the outage-driven lessons behind the pattern. |
 | 2026-08-05 | AI Research | [ansi-escape-animation-attempt](ai-research/ansi-escape-animation-attempt.md) | Tested whether raw ANSI escape codes smuggled into a chat response could animate a terminal live — negative result, rendering layer strips them. |
 | 2026-08-05 | Showcase | [edu](showcases/edu/README.md) | Self-directed continuing-education system with a public, tamper-evident transcript — entry includes the reproducible master prompt used to build it. |
 | 2026-08-05 | — | [standing-documentation-practice](standing-documentation-practice.md) | The decision to make logging CS-related work a default, proactive habit rather than something requested case by case. |
