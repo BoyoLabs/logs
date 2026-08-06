@@ -78,7 +78,7 @@ Pulled full logs to reconstruct exactly what happened:
 
 - **18:05:21** — Boot. Keyboard (`03f0:098f`) enumerated normally on `usb 5-2`.
 - **18:10:15** — Chrome Remote Desktop host started.
-- **18:26:04** — Remote client connected (boyolabstech@gmail.com via relay/STUN).
+- **18:26:04** — Remote client connected ([REDACTED-EMAIL] via relay/STUN).
 - **~18:26–18:27** — OpenRGB session ran, sent HID commands to keyboard.
 - **18:27:49** — Remote client disconnected. Session lasted ~105 seconds.
 - **21:44:14** — Next reboot. Keyboard completely absent from USB — never returned.
