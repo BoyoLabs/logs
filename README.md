@@ -6,6 +6,8 @@
 
 | Date | Category | Entry | Summary |
 |------|----------|-------|---------|
+| 2026-08-10 | Showcase | ★ [boyoapps](showcases/boyoapps/README.md) | A terminal app launcher/scaffolding tool with a built-in curses Python code editor, purpose-built for creating and editing small scripts entirely from an SSH session — source code and reproducible master prompt included. |
+| 2026-08-10 | Showcase | ★ [portfolio](showcases/portfolio/README.md) | A plain-text (no curses) terminal dashboard for a personal income-portfolio web app — live totals, braille-rendered charts, positions, 401k tracking, milestones, news, and a heatmap, all typeable from a phone SSH client. |
 | 2026-08-06 | Infra | [bios-ac-power-recovery](infra/bios-ac-power-recovery.md) | Configured the BIOS to auto-recover the server after a power outage while still respecting an intentional shutdown for maintenance — one setting handles both, plus a documentation-gap finding on the vendor's side. |
 | 2026-08-06 | Software | ★ [ram-crisis-fleet-vs-single-machine-tco](software/ram-crisis-fleet-vs-single-machine-tco.md) | Rigorous TCO simulation: old-hardware fleet vs. one modern machine during the 2026 DRAM shortage — fleet wins on CapEx *and* compute-per-dollar, but a real crossover point (as soon as ~1.2yr) exists once power draw is counted. |
 | 2026-08-06 | Infra | [crd-decommissioned](infra/crd-decommissioned.md) | Chrome Remote Desktop retired once another existing remote-access service fully replaced it — turned out CRD had already silently stopped running weeks earlier. Includes a real security-lesson finding. |
