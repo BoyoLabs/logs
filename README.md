@@ -6,6 +6,7 @@
 
 | Date | Category | Entry | Summary |
 |------|----------|-------|---------|
+| 2026-08-13 | Software | ★ [browser-slicer-deep-dive](software/browser-slicer-deep-dive.md) | How a browser upload flow became a full headless slicing pipeline — auto-orientation, infill, tree supports — plus a real research finding: a hand-rolled settings resolver silently falling back to wrong defaults, causing three separate print-quality bugs before the pattern was recognized. |
 | 2026-08-10 | Showcase | ★ [boyoapps](showcases/boyoapps/README.md) | A terminal app launcher/scaffolding tool with a built-in curses Python code editor, purpose-built for creating and editing small scripts entirely from an SSH session — source code and reproducible master prompt included. |
 | 2026-08-10 | Showcase | ★ [portfolio](showcases/portfolio/README.md) | A plain-text (no curses) terminal dashboard for a personal income-portfolio web app — live totals, braille-rendered charts, positions, 401k tracking, milestones, news, and a heatmap, all typeable from a phone SSH client. |
 | 2026-08-06 | Infra | [bios-ac-power-recovery](infra/bios-ac-power-recovery.md) | Configured the BIOS to auto-recover the server after a power outage while still respecting an intentional shutdown for maintenance — one setting handles both, plus a documentation-gap finding on the vendor's side. |
