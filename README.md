@@ -1,5 +1,7 @@
 # Boyo Labs: The Research Logs
 
+*Part of [Boyo Labs](https://www.boyolabstech.com).*
+
 ## 📖 Log Index
 
 ★ = Featured — a personal favorite among these entries, not a quality/importance ranking of the rest.
