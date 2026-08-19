@@ -1,9 +1,12 @@
 # DDR5 SO-DIMM-to-DIMM Adapter Experiment on AM5 — 2026-08-17
 
-**Status: IN PROGRESS.** Adapters arrived 2026-08-19 (one day later than the original
-08-18 estimate). This entry was started before the test itself, as a running log —
-Context & Intent was written first; Execution and Findings get filled in once the actual
-4-DIMM boot test runs, not backfilled after the fact.
+**Status: 4-DIMM mix tested, failed to POST, reverted to native config.** Adapters
+arrived 2026-08-19 (one day later than the original 08-18 estimate). This entry was
+started before the test itself, as a running log — Context & Intent was written first;
+Execution and Findings below were filled in after the actual 4-DIMM boot test ran, not
+backfilled to look predictive. The matched-pair fallback test (2 SO-DIMM+adapter alone,
+no native UDIMM) described below has not been run yet — that's the next step if this
+gets picked back up.
 
 ## Context & Intent
 
@@ -85,8 +88,6 @@ either way (unless the 4-DIMM mix succeeds, or a proper matched
 
 ## Execution
 
-*(hardware is in hand as of 2026-08-19 — the actual boot test itself is still pending)*
-
 **Prep note, written before the test:** if the 4-DIMM mix fails to train memory
 entirely, there's genuinely nothing to instrument from the software side — nothing
 boots, so there's no OS and no log to capture. The one thing worth watching for anyway,
@@ -102,6 +103,44 @@ timings/lower speed on repeated failed boots before giving up — many modern AM
 do this automatically, and a fallback success at some much lower speed after a few
 retries would itself be a real (if partial) result, not just a flat "didn't work."
 
+**What actually happened, 2026-08-19:** installed both SO-DIMM-to-DIMM adapters (with
+the SO-DIMMs seated in them) into the 2 empty slots, alongside the existing 2x8GB native
+UDIMM in their original slots — the full 4-DIMM, 32GB mixed config described above.
+Powered on. The board's internal ARGB lighting came up normally (that header is powered
+independent of POST, so its own it isn't a useful signal either way), but nothing else
+happened — no display output, no beep, no successful boot. The **Q-LED Core zone LEDs
+were not legible in this case/board combo** — the only visible indicator was the power
+button LED itself holding a steady, continuous flash the entire time, which does not
+match the board's documented per-zone Q-LED behavior closely enough to say which stage
+(CPU/VGA/Boot/DRAM) it was actually stuck at, or to distinguish a single failed attempt
+from repeated auto-retries at looser timings. So: confirmed failure to POST, but the
+stage-level diagnostic this section planned to lean on going in was not actually
+obtainable from this rig — worth remembering for next time that the Q-LED Core isn't
+reliably visible here without pulling the case open and looking directly at the board
+zones near the DIMM slots, not just glancing at the front panel.
+
+Reverted immediately: pulled both adapters/SO-DIMMs, restored the 2 native UDIMM to
+their original slots, powered on — normal boot, confirmed via `dmidecode` post-boot
+(both DIMM A/B populated at 8GB/4800 MT/s as before, adapter slots empty). The matched-
+pair fallback test (2 SO-DIMM+adapter alone, no native UDIMM, the config the sourced
+Hardware Canucks testing actually validated as workable) has not been run — reverting to
+the known-good config was the priority for today, and that test is still a real open
+question if this gets picked back up.
+
 ## Findings
 
-*(pending)*
+- **The 4-DIMM mixed config (2 native UDIMM + 2 SO-DIMM-via-adapter) fails to POST on
+  this board**, at least at stock settings (4800 MT/s, no manual downclocking or timing
+  loosening attempted). This matches the "realistic expectation stated going in" above —
+  a failure here was the likely outcome per the sourced research, not a surprise.
+- No stage-level diagnosis was possible (see Execution) — can't confirm from this test
+  alone whether it's specifically DRAM training failing (as the pre-test hypothesis
+  assumed) versus something else. The steady power-LED flash with no Q-LED zone
+  visibility just isn't enough signal to tell.
+- No downclocking, timing-loosening, or single-adapter-pair (2-DIMM, no native UDIMM)
+  test was attempted yet — those remain the actual open next steps, not ruled out by
+  this result. This test only answers the highest-risk, most-ambitious version of the
+  question (all 4 slots, mismatched pairs, stock speed); it doesn't say anything yet
+  about whether the adapters work at all in a more modest, matched-pair config.
+- System is back on the stable native 2x8GB UDIMM config as of this test, confirmed
+  booting normally afterward.
