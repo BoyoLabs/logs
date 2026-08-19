@@ -8,6 +8,7 @@
 
 | Date | Category | Entry | Summary |
 |------|----------|-------|---------|
+| 2026-08-19 | Hardware | [ddr5-sodimm-adapter-am5-experiment](hardware/ddr5-sodimm-adapter-am5-experiment.md) | Tried adding cheap SO-DIMM-to-DIMM adapters to reach 32GB by mixing 2 native UDIMM with 2 laptop SO-DIMMs across all 4 slots on an AM5 board — flagged as the highest-risk config going in, and it failed to POST as expected; reverted to the stable native config. |
 | 2026-08-13 | Software | ★ [browser-slicer-deep-dive](software/browser-slicer-deep-dive.md) | How a browser upload flow became a full headless slicing pipeline — auto-orientation, infill, tree supports — plus a real research finding: a hand-rolled settings resolver silently falling back to wrong defaults, causing three separate print-quality bugs before the pattern was recognized. |
 | 2026-08-10 | Showcase | ★ [boyoapps](showcases/boyoapps/README.md) | A terminal app launcher/scaffolding tool with a built-in curses Python code editor, purpose-built for creating and editing small scripts entirely from an SSH session — source code and reproducible master prompt included. |
 | 2026-08-10 | Showcase | ★ [portfolio](showcases/portfolio/README.md) | A plain-text (no curses) terminal dashboard for a personal income-portfolio web app — live totals, braille-rendered charts, positions, 401k tracking, milestones, news, and a heatmap, all typeable from a phone SSH client. |
