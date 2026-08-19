@@ -35,9 +35,13 @@ trade-off (smaller attack surface) rather than an oversight.
 **Service inventory.** Roughly a dozen subdomains are live at any given time,
 covering: a public homepage/dashboard, an income-portfolio tracker, a 3D-print
 queue/upload frontend, a browser-based shell, a personal file server, a local
-image-generation tool, and a public read-only education transcript — plus a
-couple of smaller personal projects not itemized here. Two of these (the homepage and the education transcript)
-are intentionally public with no login at all; everything else sits behind a
+image-generation tool, a public read-only education transcript, and a
+troubleshooting-script host — plus a couple of smaller personal projects not
+itemized here. Three of these (the homepage, the education transcript, and the
+troubleshooting-script host) are intentionally public with no login at all —
+the last of those specifically because it's meant to be link-shared with
+other people entirely (a script published for one machine, opened on that
+machine, no account or cookie involved); everything else sits behind a
 custom PIN-and-session gate — a numeric pad built to behave well on mobile
 rather than the browser's native Basic Auth popup — since they expose personal
 data (finances, files, a shell) rather than being meant for outside visitors.
