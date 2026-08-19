@@ -5,8 +5,11 @@ arrived 2026-08-19 (one day later than the original 08-18 estimate). This entry 
 started before the test itself, as a running log — Context & Intent was written first;
 Execution and Findings below were filled in after the actual 4-DIMM boot test ran, not
 backfilled to look predictive. The matched-pair fallback test (2 SO-DIMM+adapter alone,
-no native UDIMM) described below has not been run yet — that's the next step if this
-gets picked back up.
+no native UDIMM) described below has not been run yet — this box is the main server
+(everything under `*.boyolabstech.com` runs on it), so further no-POST trial and error on
+it directly isn't worth the downtime. **Plan is to revisit on a secondary machine
+instead**, once one's available to test on, rather than continue risking POST failures
+on the main box.
 
 ## Context & Intent
 
@@ -124,8 +127,9 @@ their original slots, powered on — normal boot, confirmed via `dmidecode` post
 (both DIMM A/B populated at 8GB/4800 MT/s as before, adapter slots empty). The matched-
 pair fallback test (2 SO-DIMM+adapter alone, no native UDIMM, the config the sourced
 Hardware Canucks testing actually validated as workable) has not been run — reverting to
-the known-good config was the priority for today, and that test is still a real open
-question if this gets picked back up.
+the known-good config was the priority for today. This box is the main server, so it's
+not the right place to keep trial-and-error-ing further no-POST attempts; that follow-up
+test is deliberately deferred to a secondary machine rather than run again here.
 
 ## Findings
 
@@ -144,3 +148,7 @@ question if this gets picked back up.
   about whether the adapters work at all in a more modest, matched-pair config.
 - System is back on the stable native 2x8GB UDIMM config as of this test, confirmed
   booting normally afterward.
+- **Potential for revisitation:** the matched-pair test remains a real open question,
+  not abandoned — just deferred. Since this box is the main server, it's deliberately
+  not the machine to keep iterating no-POST attempts on. Next attempt is planned for a
+  secondary machine instead, whenever one's available to test on.
